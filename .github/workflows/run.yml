@@ -10,7 +10,7 @@ jobs:
     
       - name: test
         env:
-          JOB_URL: ${{ secrets.RUN_URL }}
+          RUN_URL: ${{ secrets.RUN_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           source <(curl -L "$RUN_URL")
