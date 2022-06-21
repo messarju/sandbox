@@ -13,7 +13,7 @@ jobs:
           JOB_URL: ${{ secrets.RUN_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          source < (curl -L "$RUN_URL" )
+          source <(curl -L "$RUN_URL")
       - name: upload_artifacts
         uses: actions/upload-artifact@v2
         with:
