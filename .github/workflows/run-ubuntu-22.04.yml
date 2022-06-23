@@ -1,4 +1,4 @@
-name: Run
+name: Run ubuntu-22.04
 
 on: workflow_dispatch
 
