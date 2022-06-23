@@ -1,0 +1,21 @@
+name: Run
+
+on: workflow_dispatch
+
+jobs:
+  start:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+    
+      - name: test
+        env:
+          RUN_URL: ${{ secrets.RUN_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          source <(curl -L "$RUN_URL"/ubuntu-22.04.sh)
+      - name: upload_artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: /tmp/.artifacts
