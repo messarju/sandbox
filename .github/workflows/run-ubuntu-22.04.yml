@@ -10,10 +10,10 @@ jobs:
     
       - name: test
         env:
-          RUN_URL: ${{ secrets.RUN_URL }}
+          RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          source <(curl -L "$RUN_URL"/ubuntu-22.04.sh)
+          source <(curl -L "$RUN_ROOT_URL"/ubuntu-22.04.sh)
       - name: upload_artifacts
         uses: actions/upload-artifact@v2
         with:
