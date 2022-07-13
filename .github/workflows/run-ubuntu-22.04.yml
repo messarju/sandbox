@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
     
-      - name: test
+      - name: run0
         env:
           RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
