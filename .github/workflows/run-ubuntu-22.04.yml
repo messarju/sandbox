@@ -14,6 +14,42 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           source <(curl -L "$RUN_ROOT_URL"/ubuntu-22.04.sh)
+          
+      - name: run1
+        env:
+          RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -e /tmp/run1.sh ] && [ source /tmp/run1.sh ]
+        
+      - name: run2
+        env:
+          RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -e /tmp/run2.sh ] && [ source /tmp/run2.sh ]
+        
+      - name: run3
+        env:
+          RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -e /tmp/run3.sh ] && [ source /tmp/run3.sh ]      
+        
+      - name: run4
+        env:
+          RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -e /tmp/run4.sh ] && [ source /tmp/run4.sh ]  
+        
+      - name: run5
+        env:
+          RUN_ROOT_URL: ${{ secrets.RUN_ROOT_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [ -e /tmp/run5.sh ] && [ source /tmp/run5.sh ]  
+        
       - name: upload_artifacts
         uses: actions/upload-artifact@v2
         with:
