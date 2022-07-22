@@ -30,7 +30,7 @@ jobs:
           from selenium import webdriver
           from selenium.webdriver.firefox.service import Service as FirefoxService
           from webdriver_manager.firefox import GeckoDriverManager
-
+          from selenium.webdriver.common.by import By
           driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
           url='https://info-slide.blogspot.com/2022/07/operation-03-hail-to-chief-red-alert-2.html'
           driver.get(url)
@@ -40,7 +40,7 @@ jobs:
           driver.save_screenshot('.artifacts/shot.png')
 
           driver.switch_to.frame(driver.find_element(By.CSS_SELECTOR, "*[src*='you']"))
-          from selenium.webdriver.common.by import By
+
           content = driver.find_element(By.CSS_SELECTOR, "*[src*='you']")
           print(content)
           content.click()
