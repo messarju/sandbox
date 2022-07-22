@@ -39,7 +39,7 @@ jobs:
           
           driver.save_screenshot('.artifacts/shot.png')
 
-          driver.switch_to.frame(driver.find_element("iframe"))
+          driver.switch_to.frame(driver.find_element(By.CSS_SELECTOR, "*[src*='you']"))
           from selenium.webdriver.common.by import By
           content = driver.find_element(By.CSS_SELECTOR, "*[src*='you']")
           print(content)
