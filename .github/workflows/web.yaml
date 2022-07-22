@@ -17,8 +17,7 @@ jobs:
         pip install pipenv
         pipenv install
     - name: Prepare Selenium
-# https://github.com/marketplace/actions/setup-chromedriver
-    - uses: nanasess/setup-chromedriver@v1.0.5
+      uses: nanasess/setup-chromedriver@v1.0.5
     - name: Start XVFB
       run: |
 #        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional, disables headless mode
