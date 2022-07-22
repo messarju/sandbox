@@ -25,6 +25,7 @@ jobs:
       - name: Run the scraping script
         shell: bash
         run: |
+          md .artifacts
           python << 'END'
           from selenium import webdriver
           from selenium.webdriver.firefox.service import Service as FirefoxService
@@ -34,11 +35,18 @@ jobs:
           url='https://info-slide.blogspot.com/2022/07/operation-03-hail-to-chief-red-alert-2.html'
           driver.get(url)
           print(driver.title)
+          driver.get_screenshot_as_file('.artifacts/shot.png')
           from selenium.webdriver.common.by import By
           content = driver.find_element(By.CSS_SELECTOR, "*[src*='you']")
+          print(content)
           content.click()
           driver.implicitly_wait(60)
           
 
           END
 
+      - name: upload_artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: .artifacts
