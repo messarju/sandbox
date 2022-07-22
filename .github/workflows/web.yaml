@@ -35,7 +35,11 @@ jobs:
           url='https://info-slide.blogspot.com/2022/07/operation-03-hail-to-chief-red-alert-2.html'
           driver.get(url)
           print(driver.title)
+          driver.implicitly_wait(3)
+          
           driver.save_screenshot('.artifacts/shot.png')
+
+          driver.switch_to.frame(driver.find_element_by_tag_name("iframe"))
           from selenium.webdriver.common.by import By
           content = driver.find_element(By.CSS_SELECTOR, "*[src*='you']")
           print(content)
