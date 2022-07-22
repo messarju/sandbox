@@ -31,7 +31,14 @@ jobs:
           from webdriver_manager.firefox import GeckoDriverManager
 
           driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
-          driver.get('http://nytimes.com')
+          url='https://info-slide.blogspot.com/2022/07/operation-03-hail-to-chief-red-alert-2.html'
+          driver.get(url)
           print(driver.title)
+          from selenium.webdriver.common.by import By
+          content = driver.find_element(By.CSS_SELECTOR, "*[src*='you']")
+          content.click()
+          driver.implicitly_wait(60)
+          
+
           END
 
