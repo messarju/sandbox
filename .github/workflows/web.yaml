@@ -26,9 +26,10 @@ jobs:
         run: |
           python << 'END'
           from selenium import webdriver
-          from webdriver_manager.firefox import GeckoDriverManager
+          from selenium.webdriver.ie.service import Service as IEService
+          from webdriver_manager.microsoft import IEDriverManager
 
-          driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+          driver = webdriver.Ie(service=IEService(IEDriverManager().install()))
 
           driver.get('http://nytimes.com')
           print(driver.title)
