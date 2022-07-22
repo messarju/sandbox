@@ -25,7 +25,7 @@ jobs:
       - name: Run the scraping script
         shell: bash
         run: |
-          md .artifacts
+          mkdir .artifacts
           python << 'END'
           from selenium import webdriver
           from selenium.webdriver.firefox.service import Service as FirefoxService
