@@ -44,11 +44,11 @@ jobs:
 
           driver.switch_to.frame(driver.find_element(By.CSS_SELECTOR, "iframe"))
 
-          content = driver.find_element(By.CSS_SELECTOR, "*[src*='you']")
+          content = driver.find_element(By.CSS_SELECTOR, "#movie_player")
           print(content)
           content.click()
           driver.implicitly_wait(60)
-          
+          u = 'https://youtu.be/xzEyR10WS_Y'
 
           END
 
