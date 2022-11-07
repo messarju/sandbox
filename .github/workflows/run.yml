@@ -1,7 +1,12 @@
 name: Run
 
-on: workflow_dispatch
-
+on:
+  workflow_dispatch:
+    inputs:
+      url_run:
+        type: environment
+      run_src:
+        type: string        
 jobs:
   start:
     runs-on: ubuntu-latest
@@ -13,7 +18,11 @@ jobs:
           RUN_URL: ${{ secrets.RUN_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          source <(curl -L "$RUN_URL")
+          # source <(curl -L "$RUN_URL")
+          echo ["$url_run"]
+          echo ["$run_src"]
+          echo ${{ inputs.url_run }}
+          echo ${{ inputs.run_src }}          
       - name: upload_artifacts
         uses: actions/upload-artifact@v2
         with:
